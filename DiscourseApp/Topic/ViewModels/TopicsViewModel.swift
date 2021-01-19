@@ -19,7 +19,11 @@ class TopicsViewModel {
     var topicsDataManager:          TopicsDataManager
     
     //
-    var topics =                    [Topic]()
+    var topics:[Topic] = [] {
+        didSet {
+            self.topicsViewDelegate?.topicsFetched()
+        }
+    }
     
     // MARK: - Lifecycle
     init(with dataManager: TopicsDataManager) {
@@ -30,9 +34,18 @@ class TopicsViewModel {
     
     
     // MARK: - Class Properties
-    func viewWasLoad(){
-        guard let fetchedTopics = topicsDataManager.fetchLatestTopics() else { return  }
-        self.topics = fetchedTopics
+    func loadTopics(){
+        topicsDataManager.fetchTopics { (result) in
+            switch result{
+                case .success(let response):
+                    
+                    guard let fetchedTopics = response?.topicList?.topics else { return }
+                    self.topics = fetchedTopics
+                    
+                case .failure(_):
+                print("OOps..ha fallados")
+            }
+        }
     }
     
     

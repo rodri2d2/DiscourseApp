@@ -40,8 +40,11 @@ class AppCoordinator: Coordinator{
         let tabBarController = UITabBarController()
         
         //Topics
+        let remoteManager = RemoteDataManagerImpl(networkService: NetworkService())
+        let dataManager = DiscourseClientDataManager(manager: remoteManager)
+        
         guard let topicController = setOfControllers["topics"] else {return}
-        let topicCoordinator = TopicCoordinator(with: topicController, dataManager: TopicsDataManager())
+        let topicCoordinator = TopicCoordinator(with: topicController, dataManager: dataManager)
         topicCoordinator.start()
         
         //Categories

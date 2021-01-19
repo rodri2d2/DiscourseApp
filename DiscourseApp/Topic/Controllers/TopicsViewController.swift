@@ -47,7 +47,8 @@ class TopicsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        viewModel.viewWasLoad()
+        viewModel.loadTopics()
+        viewModel.topicsViewDelegate = self
     }
     
     
@@ -64,7 +65,6 @@ extension TopicsViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-    
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TopicCell.identifier, for: indexPath) as? TopicCell else { return UITableViewCell()}
         
         cell.configure(topic: viewModel.topics[indexPath.row])
@@ -88,7 +88,7 @@ extension TopicsViewController: UITableViewDelegate{
 }
 
 
-// MARK: - Extension for TopicsViewDezlegate
+// MARK: - Extension for TopicsViewDelegate
 extension TopicsViewController: TopicsViewDelegate{
     func topicsFetched() {
         tableView.reloadData()
