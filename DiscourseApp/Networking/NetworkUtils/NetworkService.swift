@@ -62,7 +62,7 @@ class NetworkService: NSObject{
             }
             
             if let data = data {
-                do {
+                do {                    
                     let model = try JSONDecoder().decode(T.Response.self, from: data)
                     DispatchQueue.main.async {
                         completion(.success(model))

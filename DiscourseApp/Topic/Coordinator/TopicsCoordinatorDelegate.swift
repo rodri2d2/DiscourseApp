@@ -8,8 +8,5 @@
 import Foundation
 
 protocol TopicsCoordinatorDelegate: class{
-    
-    func didSelectATopic()
-    func didPressBackButton()
-    
+    func didSelectATopic(topic: Topic)    
 }

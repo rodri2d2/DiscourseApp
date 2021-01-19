@@ -41,26 +41,21 @@ class TopicsViewModel {
                     
                     guard let fetchedTopics = response?.topicList?.topics else { return }
                     self.topics = fetchedTopics
-                    
                 case .failure(_):
                 print("OOps..ha fallados")
             }
         }
     }
     
-    
     func numberOfRows() -> Int{
         return topics.count
     }
     
-}
-
-
-
-extension TopicsViewModel{
-    
-    func didSelectATopic(){
-        coordinatorDelegate?.didSelectATopic()
+    func didSelectATopic(at index: Int){
+        if(index < self.topics.count){
+            let topic = self.topics[index]
+            coordinatorDelegate?.didSelectATopic(topic: topic)
+        }
     }
     
 }

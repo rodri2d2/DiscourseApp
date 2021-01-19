@@ -10,5 +10,6 @@ import Foundation
 protocol RemoteDataManager {
     
     func fetchAllTopics(completion: @escaping (Result<LatestTopicsResponse?, Error>) -> ())
-    
+    func fetchSingleTopic(id: Int, completion: @escaping (Result<SingleTopicResponse?, Error>)->())
+    func deleteTopic(id: Int, completion: @escaping (Result<DeleteTopicResponse?, Error>) -> ())
 }

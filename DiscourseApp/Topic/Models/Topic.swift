@@ -9,6 +9,6 @@ import Foundation
 
 
 struct Topic: Codable {
-    var id:     Int
-    var title:  String
+    let id:     Int
+    let title:  String
 }

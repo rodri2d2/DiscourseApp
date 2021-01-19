@@ -32,12 +32,8 @@ extension APIRequest {
     
     func request() -> URLRequest {
         
-    
-        
         let url = baseURL.appendingPathComponent(path)
-        
-        print(url)
-        
+    
         guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             fatalError("Not able to create components")
         }

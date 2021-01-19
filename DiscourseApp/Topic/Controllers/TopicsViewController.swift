@@ -21,6 +21,7 @@ class TopicsViewController: UIViewController {
         tableView.dataSource         = self
         tableView.delegate           = self
         tableView.register(UINib(nibName: TopicCell.identifier, bundle: nil), forCellReuseIdentifier: TopicCell.identifier)
+        
         return tableView
     }()
     
@@ -38,18 +39,30 @@ class TopicsViewController: UIViewController {
     
     
     override func loadView() {
+        
         super.loadView()
         self.view.addSubview(tableView)
         tableView.pin(to: self.view)
+//
+//        let rightBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(plusButtonTapped))
+//        rightBarButtonItem.tintColor = .black
+//        navigationItem.rightBarButtonItem = rightBarButtonItem
         
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-        viewModel.loadTopics()
-        viewModel.topicsViewDelegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.loadTopics()
+    }
+    
+    
+    // MARK: - Actions
+    
     
     
 }
@@ -83,7 +96,8 @@ extension TopicsViewController: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.didSelectATopic()
+        tableView.deselectRow(at: indexPath, animated: true)
+        viewModel.didSelectATopic(at: indexPath.row)
     }
 }
 

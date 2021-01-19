@@ -44,7 +44,7 @@ class AppCoordinator: Coordinator{
         let dataManager = DiscourseClientDataManager(manager: remoteManager)
         
         guard let topicController = setOfControllers["topics"] else {return}
-        let topicCoordinator = TopicCoordinator(with: topicController, dataManager: dataManager)
+        let topicCoordinator = TopicCoordinator(with: topicController, dataManager: dataManager, detailDataManager: dataManager)
         topicCoordinator.start()
         
         //Categories
