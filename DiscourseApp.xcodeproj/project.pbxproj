@@ -20,6 +20,10 @@
 		5B9AFCA725876C1F007BE9E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9AFCA625876C1F007BE9E0 /* SceneDelegate.swift */; };
 		5B9AFCAE25876C21007BE9E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B9AFCAD25876C21007BE9E0 /* Assets.xcassets */; };
 		5B9AFCB125876C21007BE9E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9AFCAF25876C21007BE9E0 /* LaunchScreen.storyboard */; };
+		5B9BE45325B753CE006BF5D4 /* AddTopicsCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9BE45225B753CE006BF5D4 /* AddTopicsCoodinator.swift */; };
+		5B9BE45625B754FD006BF5D4 /* AddTopicDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9BE45525B754FD006BF5D4 /* AddTopicDataManager.swift */; };
+		5B9BE45925B757D2006BF5D4 /* CategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9BE45825B757D2006BF5D4 /* CategoryResponse.swift */; };
+		5B9BE45D25B758B7006BF5D4 /* AddTopicCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9BE45C25B758B7006BF5D4 /* AddTopicCoordinatorDelegate.swift */; };
 		5BBB63D825B084E600305619 /* ApiResources.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BBB63D725B084E600305619 /* ApiResources.plist */; };
 		5BBB63DE25B089EF00305619 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB63DD25B089EF00305619 /* CoordinatorProtocol.swift */; };
 		5BBB63E225B08A2D00305619 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB63E125B08A2D00305619 /* AppCoordinator.swift */; };
@@ -45,14 +49,17 @@
 		5BC0694F25B5DA4C00D205CC /* LatestTopicsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0694E25B5DA4C00D205CC /* LatestTopicsResponse.swift */; };
 		5BC0695325B5E85500D205CC /* TopicsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0695225B5E85500D205CC /* TopicsDataManager.swift */; };
 		5BDA19C625B6ED060020162D /* TopicDetailCoodinatorDelgate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA19C525B6ED060020162D /* TopicDetailCoodinatorDelgate.swift */; };
-		5BDA19D525B727EE0020162D /* TEST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA19D425B727EE0020162D /* TEST.swift */; };
 		5BDA19D825B736D50020162D /* DeleteTopicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA19D725B736D50020162D /* DeleteTopicResponse.swift */; };
 		5BDA19DB25B7379A0020162D /* DeleteTopicRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA19DA25B7379A0020162D /* DeleteTopicRequest.swift */; };
 		5BE8D49F25B611530056A396 /* DiscouseClientDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8D49E25B611530056A396 /* DiscouseClientDataManager.swift */; };
 		5BE8D4A225B6B89C0056A396 /* RemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8D4A125B6B89C0056A396 /* RemoteDataManager.swift */; };
 		5BE8D4A625B6B99E0056A396 /* RemoteDataManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8D4A525B6B99E0056A396 /* RemoteDataManagerImpl.swift */; };
+		5BE9260825B882DC00CCC3E8 /* AddNewTopicViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE9260725B882DC00CCC3E8 /* AddNewTopicViewModelDelegate.swift */; };
+		5BE9260B25B8866700CCC3E8 /* AddNewTopicRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE9260A25B8866700CCC3E8 /* AddNewTopicRequest.swift */; };
+		5BE9260E25B886BE00CCC3E8 /* AddNewTopicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE9260D25B886BE00CCC3E8 /* AddNewTopicResponse.swift */; };
+		5BE9261525B8A03E00CCC3E8 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE9261425B8A03E00CCC3E8 /* UIViewController+Ext.swift */; };
 		5BF6B0D225B7509900CC7AE8 /* AddTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6B0D025B7509900CC7AE8 /* AddTopicViewController.swift */; };
-		5BF6B0D325B7509900CC7AE8 /* AddTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF6B0D125B7509900CC7AE8 /* AddTopicViewController.xib */; };
+		5BF6B0D325B7509900CC7AE8 /* AddTopicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF6B0D125B7509900CC7AE8 /* AddTopicView.xib */; };
 		5BF6B0D825B750B100CC7AE8 /* AddTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6B0D725B750B100CC7AE8 /* AddTopicViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +79,10 @@
 		5B9AFCAD25876C21007BE9E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B9AFCB025876C21007BE9E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B9AFCB225876C21007BE9E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B9BE45225B753CE006BF5D4 /* AddTopicsCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicsCoodinator.swift; sourceTree = "<group>"; };
+		5B9BE45525B754FD006BF5D4 /* AddTopicDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicDataManager.swift; sourceTree = "<group>"; };
+		5B9BE45825B757D2006BF5D4 /* CategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResponse.swift; sourceTree = "<group>"; };
+		5B9BE45C25B758B7006BF5D4 /* AddTopicCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		5BBB63D725B084E600305619 /* ApiResources.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiResources.plist; sourceTree = "<group>"; };
 		5BBB63DD25B089EF00305619 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		5BBB63E125B08A2D00305619 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -97,14 +108,17 @@
 		5BC0694E25B5DA4C00D205CC /* LatestTopicsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTopicsResponse.swift; sourceTree = "<group>"; };
 		5BC0695225B5E85500D205CC /* TopicsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsDataManager.swift; sourceTree = "<group>"; };
 		5BDA19C525B6ED060020162D /* TopicDetailCoodinatorDelgate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicDetailCoodinatorDelgate.swift; sourceTree = "<group>"; };
-		5BDA19D425B727EE0020162D /* TEST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TEST.swift; sourceTree = "<group>"; };
 		5BDA19D725B736D50020162D /* DeleteTopicResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTopicResponse.swift; sourceTree = "<group>"; };
 		5BDA19DA25B7379A0020162D /* DeleteTopicRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTopicRequest.swift; sourceTree = "<group>"; };
 		5BE8D49E25B611530056A396 /* DiscouseClientDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscouseClientDataManager.swift; sourceTree = "<group>"; };
 		5BE8D4A125B6B89C0056A396 /* RemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataManager.swift; sourceTree = "<group>"; };
 		5BE8D4A525B6B99E0056A396 /* RemoteDataManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataManagerImpl.swift; sourceTree = "<group>"; };
+		5BE9260725B882DC00CCC3E8 /* AddNewTopicViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTopicViewModelDelegate.swift; sourceTree = "<group>"; };
+		5BE9260A25B8866700CCC3E8 /* AddNewTopicRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTopicRequest.swift; sourceTree = "<group>"; };
+		5BE9260D25B886BE00CCC3E8 /* AddNewTopicResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTopicResponse.swift; sourceTree = "<group>"; };
+		5BE9261425B8A03E00CCC3E8 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		5BF6B0D025B7509900CC7AE8 /* AddTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicViewController.swift; sourceTree = "<group>"; };
-		5BF6B0D125B7509900CC7AE8 /* AddTopicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTopicViewController.xib; sourceTree = "<group>"; };
+		5BF6B0D125B7509900CC7AE8 /* AddTopicView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTopicView.xib; sourceTree = "<group>"; };
 		5BF6B0D725B750B100CC7AE8 /* AddTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				5B0AC30925B4B81C00ADEB51 /* TopicDetailViewController.swift */,
-				5BDA19D425B727EE0020162D /* TEST.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -193,11 +206,12 @@
 			isa = PBXGroup;
 			children = (
 				5BBB63D325B0847A00305619 /* App */,
+				5BC0695525B5EB6A00D205CC /* DataManagers */,
 				5BBB641125B0935600305619 /* Extensions */,
 				5BC0692E25B585C000D205CC /* Networking */,
 				5BBB63ED25B0900700305619 /* Users */,
 				5BBB63EC25B0900100305619 /* Category */,
-				5BBB63EB25B08FF700305619 /* Topic */,
+				5BBB63EB25B08FF700305619 /* Topics */,
 				5BBB63DC25B089D300305619 /* AppCoordinator */,
 				5BBB63D625B084C600305619 /* Resources */,
 			);
@@ -242,18 +256,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		5BBB63EB25B08FF700305619 /* Topic */ = {
+		5BBB63EB25B08FF700305619 /* Topics */ = {
 			isa = PBXGroup;
 			children = (
+				5BE9261125B89EF600CCC3E8 /* Topic */,
 				5BF6B0CE25B7505D00CC7AE8 /* AddTopic */,
 				5B0AC31225B4C13000ADEB51 /* TopicDetail */,
-				5BBB640225B091E900305619 /* Models */,
-				5BBB640125B091DD00305619 /* Views */,
-				5BBB640025B091CF00305619 /* ViewModels */,
-				5BBB63FE25B091BE00305619 /* Coordinator */,
-				5BBB63FF25B091C800305619 /* Controllers */,
 			);
-			path = Topic;
+			path = Topics;
 			sourceTree = "<group>";
 		};
 		5BBB63EC25B0900100305619 /* Category */ = {
@@ -404,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				5BBB641225B0937A00305619 /* UIView+Ext.swift */,
+				5BE9261425B8A03E00CCC3E8 /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -411,7 +422,6 @@
 		5BC0692E25B585C000D205CC /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				5BC0695525B5EB6A00D205CC /* DataManagers */,
 				5BC0694825B5D8F700D205CC /* NetworkUtils */,
 				5BC0694725B5D8D100D205CC /* RequestModels */,
 				5BC0694625B5D8BF00D205CC /* ResponseModels */,
@@ -425,6 +435,8 @@
 				5BC0694E25B5DA4C00D205CC /* LatestTopicsResponse.swift */,
 				5B03E16425B6DD6300B35AB9 /* SingleTopicResponse.swift */,
 				5BDA19D725B736D50020162D /* DeleteTopicResponse.swift */,
+				5B9BE45825B757D2006BF5D4 /* CategoryResponse.swift */,
+				5BE9260D25B886BE00CCC3E8 /* AddNewTopicResponse.swift */,
 			);
 			path = ResponseModels;
 			sourceTree = "<group>";
@@ -435,6 +447,7 @@
 				5BC0694B25B5DA1500D205CC /* LatestTopicsResquest.swift */,
 				5B03E16B25B6DEAE00B35AB9 /* SingleTopicRequest.swift */,
 				5BDA19DA25B7379A0020162D /* DeleteTopicRequest.swift */,
+				5BE9260A25B8866700CCC3E8 /* AddNewTopicRequest.swift */,
 			);
 			path = RequestModels;
 			sourceTree = "<group>";
@@ -468,6 +481,18 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		5BE9261125B89EF600CCC3E8 /* Topic */ = {
+			isa = PBXGroup;
+			children = (
+				5BBB640225B091E900305619 /* Models */,
+				5BBB640125B091DD00305619 /* Views */,
+				5BBB640025B091CF00305619 /* ViewModels */,
+				5BBB63FF25B091C800305619 /* Controllers */,
+				5BBB63FE25B091BE00305619 /* Coordinator */,
+			);
+			path = Topic;
+			sourceTree = "<group>";
+		};
 		5BF6B0CE25B7505D00CC7AE8 /* AddTopic */ = {
 			isa = PBXGroup;
 			children = (
@@ -491,7 +516,7 @@
 		5BF6B0D625B7509D00CC7AE8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5BF6B0D125B7509900CC7AE8 /* AddTopicViewController.xib */,
+				5BF6B0D125B7509900CC7AE8 /* AddTopicView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -500,6 +525,7 @@
 			isa = PBXGroup;
 			children = (
 				5BF6B0D725B750B100CC7AE8 /* AddTopicViewModel.swift */,
+				5BE9260725B882DC00CCC3E8 /* AddNewTopicViewModelDelegate.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -507,6 +533,8 @@
 		5BF6B0DC25B750E400CC7AE8 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				5B9BE45225B753CE006BF5D4 /* AddTopicsCoodinator.swift */,
+				5B9BE45C25B758B7006BF5D4 /* AddTopicCoordinatorDelegate.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -514,6 +542,7 @@
 		5BF6B0DD25B750F400CC7AE8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5B9BE45525B754FD006BF5D4 /* AddTopicDataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -577,7 +606,7 @@
 			files = (
 				5BBB63FC25B0904100305619 /* UsersViewController.xib in Resources */,
 				5B9AFCB125876C21007BE9E0 /* LaunchScreen.storyboard in Resources */,
-				5BF6B0D325B7509900CC7AE8 /* AddTopicViewController.xib in Resources */,
+				5BF6B0D325B7509900CC7AE8 /* AddTopicView.xib in Resources */,
 				5BBB63D825B084E600305619 /* ApiResources.plist in Resources */,
 				5BBB642225B09DEB00305619 /* TopicCell.xib in Resources */,
 				5BBB63F725B0903500305619 /* CategoriesViewController.xib in Resources */,
@@ -595,6 +624,7 @@
 			files = (
 				5BF6B0D225B7509900CC7AE8 /* AddTopicViewController.swift in Sources */,
 				5B03E16925B6DE0600B35AB9 /* TopicDetailManager.swift in Sources */,
+				5B9BE45925B757D2006BF5D4 /* CategoryResponse.swift in Sources */,
 				5B03E15925B6CD3E00B35AB9 /* TopicDetailViewModel.swift in Sources */,
 				5BBB63E825B08E8E00305619 /* ControllersSet.swift in Sources */,
 				5BC0693025B586D600D205CC /* APIRequest.swift in Sources */,
@@ -603,6 +633,7 @@
 				5BBB642625B0BEEF00305619 /* Topic.swift in Sources */,
 				5B0AC30125B1F2A000ADEB51 /* TopicsViewModelDelegate.swift in Sources */,
 				5BBB641325B0937A00305619 /* UIView+Ext.swift in Sources */,
+				5BE9260825B882DC00CCC3E8 /* AddNewTopicViewModelDelegate.swift in Sources */,
 				5BC0694F25B5DA4C00D205CC /* LatestTopicsResponse.swift in Sources */,
 				5B0AC31025B4B89700ADEB51 /* TopicsCoordinatorDelegate.swift in Sources */,
 				5B03E16C25B6DEAE00B35AB9 /* SingleTopicRequest.swift in Sources */,
@@ -617,7 +648,11 @@
 				5BBB642925B0BF5200305619 /* TopicsViewModel.swift in Sources */,
 				5BC0694C25B5DA1500D205CC /* LatestTopicsResquest.swift in Sources */,
 				5BBB63F625B0903500305619 /* CategoriesViewController.swift in Sources */,
+				5BE9260B25B8866700CCC3E8 /* AddNewTopicRequest.swift in Sources */,
 				5BDA19DB25B7379A0020162D /* DeleteTopicRequest.swift in Sources */,
+				5BE9261525B8A03E00CCC3E8 /* UIViewController+Ext.swift in Sources */,
+				5BE9260E25B886BE00CCC3E8 /* AddNewTopicResponse.swift in Sources */,
+				5B9BE45325B753CE006BF5D4 /* AddTopicsCoodinator.swift in Sources */,
 				5B03E16525B6DD6300B35AB9 /* SingleTopicResponse.swift in Sources */,
 				5BC0693425B5874E00D205CC /* HttpMethod.swift in Sources */,
 				5BF6B0D825B750B100CC7AE8 /* AddTopicViewModel.swift in Sources */,
@@ -628,8 +663,9 @@
 				5BBB640425B0923200305619 /* TopicCoordinator.swift in Sources */,
 				5BBB63F025B0902500305619 /* TopicsViewController.swift in Sources */,
 				5BE8D49F25B611530056A396 /* DiscouseClientDataManager.swift in Sources */,
+				5B9BE45625B754FD006BF5D4 /* AddTopicDataManager.swift in Sources */,
 				5BC0693D25B58AFE00D205CC /* APIResources.swift in Sources */,
-				5BDA19D525B727EE0020162D /* TEST.swift in Sources */,
+				5B9BE45D25B758B7006BF5D4 /* AddTopicCoordinatorDelegate.swift in Sources */,
 				5BBB641C25B0942D00305619 /* UsersCoordinator.swift in Sources */,
 				5BDA19C625B6ED060020162D /* TopicDetailCoodinatorDelgate.swift in Sources */,
 			);
