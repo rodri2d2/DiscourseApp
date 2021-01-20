@@ -38,12 +38,15 @@ class TopicCoordinator: Coordinator {
     // MARK: - Coordinator Implemented Methods
     func start() {
         
+        
         let topicViewModel  = TopicsViewModel(with: self.topicsDataManager)
         let topicController = TopicsViewController(with: topicViewModel)
         
         topicViewModel.topicsViewDelegate  = topicController
         topicViewModel.coordinatorDelegate = self
         
+        
+        self.topicsViewModel = topicViewModel
         presenter.pushViewController(topicController, animated: true)
         
     }

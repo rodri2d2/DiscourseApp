@@ -32,7 +32,6 @@ class TopicsViewModel {
         
     }
     
-
     // MARK: - Class Properties
     func loadTopics(){
         topicsDataManager.fetchTopics { (result) in
