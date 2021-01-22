@@ -12,6 +12,12 @@ class TopicCell: UITableViewCell {
     // MARK: - Identifier
     static let identifier = "TopicCell"
     
+    var viewModel: TopicCellViewModel? {
+        didSet{
+            self.topicTextLabel.text = viewModel?.topicTitle
+        }
+    }
+    
     // MARK: - Outlets
     @IBOutlet weak var topicTextLabel: UILabel!
     
@@ -19,10 +25,4 @@ class TopicCell: UITableViewCell {
         super.awakeFromNib()
 
     }
-    
-    func configure(topic: Topic)  {
-        self.topicTextLabel.text = topic.title
-    }
-
-    
 }

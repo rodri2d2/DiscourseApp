@@ -5,7 +5,7 @@
 //  Created by Rodrigo Candido on 18/1/21.
 //
 
-import Foundation
+import UIKit
 
 
 
@@ -18,7 +18,7 @@ class DiscourseClientDataManager {
     }
 }
 
-
+// MARK: - TOPICS RELATED EXTENSIONS
 extension DiscourseClientDataManager: TopicsDataManager{
     func fetchTopics(completion: @escaping (Result<LatestTopicsResponse?, Error>) -> ()) {
         remoteManager.fetchAllTopics(completion: completion)
@@ -41,7 +41,23 @@ extension DiscourseClientDataManager: AddTopicDataManager{
     func didAddTopic(title: String, raw: String, completion: @escaping (Result<AddNewTopicResponse?, Error>) -> ()) {
         remoteManager.addNewTopic(title: title, raw: raw, completion: completion)
     }
+}
+
+
+// MARK: - CATEGORY RELATED EXTENSIONS
+extension DiscourseClientDataManager: CategoryDataManager {
+    func fetchCategories(completion: @escaping (Result<CategoryResponse?, Error>) -> ()) {
+        remoteManager.fetchCategories(completion: completion)
+    }
+}
+
+// MARK: - USERS RELATED EXTENSIONS
+extension DiscourseClientDataManager: UserDataManager{
+    func fetchUserImage(imageURL: String, completion: @escaping (UIImage) -> ()) {
+        remoteManager.fetchUserImage(imageURL: imageURL, completion: completion)
+    }
     
-
-
+    func fetchUsers(completion: @escaping (Result<UserListResponse?, Error>) -> ()) {
+        remoteManager.fetchUsers(completion: completion)
+    }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 /**
@@ -44,6 +45,7 @@ class NetworkService: NSObject{
              Si el servidor devuelve error (del 400 al 599), decodificar el error y lo devolvemos
              */
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode >= 400, let data = data {
+              
                 do {
                     let serverError = try JSONDecoder().decode(DiscourseAPIError.self, from: data)
                     let errorString = serverError.errors?.joined(separator: ", ") ?? "Unknown error"
@@ -62,6 +64,7 @@ class NetworkService: NSObject{
             }
             
             if let data = data {
+             
                 do {                    
                     let model = try JSONDecoder().decode(T.Response.self, from: data)
                     DispatchQueue.main.async {
@@ -80,6 +83,21 @@ class NetworkService: NSObject{
             }
         }
         task.resume()
+    }
+    
+    func fetchImage(imageURL: URL, completion: @escaping (_ image: UIImage)-> ()) {
+        
+        DispatchQueue.global(qos: .utility).async {
+            if let data = try? Data(contentsOf: imageURL) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        completion(image)
+                    }
+                   
+                }
+            }
+        }
+        
     }
     
 }

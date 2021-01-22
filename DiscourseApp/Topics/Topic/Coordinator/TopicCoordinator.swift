@@ -70,6 +70,7 @@ extension TopicCoordinator: TopicsCoordinatorDelegate {
         
         let detailViewModel  = TopicDetailViewModel(topic: topic, dataManager: self.topicDetailDataManager)
         detailViewModel.detailCoordinator = self
+        
         let detailController = TopicDetailViewController(topicDetailViewModel: detailViewModel)
         detailViewModel.detailViewDelegate = detailController
         presenter.pushViewController(detailController, animated: true)

@@ -16,15 +16,23 @@ class CategoriesCoodinator: Coordinator{
     
     // MARK: - Class Properties
     private let presenter: UINavigationController
+    private let dataManager: CategoryDataManager
     
     // MARK: - Lifecycle
-    init(with presenter: UINavigationController) {
+    init(with presenter: UINavigationController, dataManager: CategoryDataManager) {
         self.presenter = presenter
+        self.dataManager = dataManager
     }
     
     
     // MARK: - Coordinator Implemented Methods
     func start() {
+        
+        
+        let viewModel = CategoryViewModel(dataManager: self.dataManager)
+        let controller = CategoriesViewController(viewModel: viewModel)
+        viewModel.categoryViewDelegate = controller
+        presenter.pushViewController(controller, animated: true)
         
         
     }

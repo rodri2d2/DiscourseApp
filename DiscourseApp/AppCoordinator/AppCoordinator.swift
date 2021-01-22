@@ -52,12 +52,12 @@ class AppCoordinator: Coordinator{
         
         //Categories
         guard let categoryController = setOfControllers["categories"] else {return}
-        let categoryCoordinator = CategoriesCoodinator(with: categoryController)
+        let categoryCoordinator = CategoriesCoodinator(with: categoryController, dataManager: dataManager)
         categoryCoordinator.start()
         
         //Users
         guard let usersController = setOfControllers["users"] else {return}
-        let usersCoordinator = UsersCoordinator(with: usersController)
+        let usersCoordinator = UsersCoordinator(with: usersController, userDataManager: dataManager)
         usersCoordinator.start()
         
         

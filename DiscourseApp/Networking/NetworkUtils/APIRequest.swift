@@ -27,13 +27,16 @@ extension APIRequest {
         guard let baseURL = URL(string: APIResources.share.apiBaseURL()!) else {
             fatalError("URL not valid")
         }
+        
         return baseURL
     }
+    
+    
     
     func request() -> URLRequest {
         
         let url = baseURL.appendingPathComponent(path)
-    
+        print(url)
         guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             fatalError("Not able to create components")
         }

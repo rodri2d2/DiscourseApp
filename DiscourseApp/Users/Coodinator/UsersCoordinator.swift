@@ -15,16 +15,22 @@ class UsersCoordinator: Coordinator{
     
     // MARK: - Class Properties
     private let presenter: UINavigationController
+    private let dataManager: UserDataManager
     
     // MARK: - Lifecycle
-    init(with presenter: UINavigationController) {
+    init(with presenter: UINavigationController, userDataManager: UserDataManager) {
         self.presenter = presenter
+        self.dataManager = userDataManager
     }
     
     
     // MARK: - Coordinator Implemented Methods
     func start() {
         
+        let viewModel = UserViewModel(dataManager: self.dataManager)
+        let controller = UsersViewController(userViewModel: viewModel)
+        viewModel.userViewModelDelegate = controller
+        presenter.pushViewController(controller, animated: true)
         
     }
     

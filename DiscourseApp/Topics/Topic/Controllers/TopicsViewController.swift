@@ -50,14 +50,14 @@ class TopicsViewController: UIViewController {
         
     }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.loadTopics()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.loadTopics()
+        
     }
     
     // MARK: - Actions
@@ -67,21 +67,22 @@ class TopicsViewController: UIViewController {
     
 }
 
-
-
 // MARK: - Extension for UITableViewDataSource
 extension TopicsViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRows()
+        return viewModel.numberOfTopics()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TopicCell.identifier, for: indexPath) as? TopicCell else { return UITableViewCell()}
-        
-        cell.configure(topic: viewModel.topics[indexPath.row])
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: TopicCell.identifier, for: indexPath) as? TopicCell,
+           let cellViewModel = self.viewModel.viewModel(index: indexPath.row){
+            cell.viewModel = cellViewModel
+            return cell
+        }
+      
+        fatalError()
     }
     
 }

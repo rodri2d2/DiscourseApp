@@ -17,43 +17,47 @@ class TopicsViewModel {
     
     //Managers
     var topicsDataManager:          TopicsDataManager
-    
+     
     //
-    var topics:[Topic] = [] {
-        didSet {
-            self.topicsViewDelegate?.topicsFetched()
-        }
-    }
+    var topicsViewModel:            [TopicCellViewModel] = []
     
     // MARK: - Lifecycle
     init(with dataManager: TopicsDataManager) {
-        
         self.topicsDataManager = dataManager
-        
     }
     
     // MARK: - Class Properties
     func loadTopics(){
         topicsDataManager.fetchTopics { (result) in
             switch result{
+                //
                 case .success(let response):
                     guard let fetchedTopics = response?.topicList?.topics else { return }
-                    self.topics = fetchedTopics
+                    for topic in fetchedTopics{
+                        self.topicsViewModel.append(TopicCellViewModel(with: topic))
+                    }
+                    self.topicsViewDelegate?.topicsFetched()
+                //
                 case .failure(let error):
                     self.topicsViewDelegate?.didFailToFetchTopics(error: error.localizedDescription)
             }
         }
     }
     
-    func numberOfRows() -> Int{
-        return topics.count
+    func numberOfTopics() -> Int{
+        return topicsViewModel.count
+    }
+    
+    func viewModel(index: Int) -> TopicCellViewModel?{
+        guard index < topicsViewModel.count else { return nil }
+        return topicsViewModel[index]
     }
     
     func didSelectATopic(at index: Int){
-        if(index < self.topics.count){
-            let topic = self.topics[index]
-            coordinatorDelegate?.didSelectATopic(topic: topic)
-        }
+        guard index < topicsViewModel.count else { return }
+        let topic = topicsViewModel[index].topic
+        coordinatorDelegate?.didSelectATopic(topic: topic)
+        
     }
     
     func didPressPlusButton(){
