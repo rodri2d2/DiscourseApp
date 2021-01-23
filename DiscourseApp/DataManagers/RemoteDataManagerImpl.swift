@@ -10,6 +10,8 @@ import UIKit
 
 class RemoteDataManagerImpl: RemoteDataManager{
 
+
+    
     
 
     // MARK: - Class Properties
@@ -61,6 +63,22 @@ class RemoteDataManagerImpl: RemoteDataManager{
         
         self.networkService.fetchImage(imageURL: url, completion: completion)
     }
+    
+    
+    func fetchSingleUser(userName: String, completion: @escaping (Result<SingleUserResponse?, Error>) -> ()) {
+    
+        let request = SingleUserRequest(userName: userName)
+        self.networkService.fetch(this: request, for: completion)
+    }
+    
+    
+    func updateUser(userName: String, newName: String, completion: @escaping (Result<SingleUserResponse?, Error>) -> ()) {
+        let request = UpdataSingleUserRequest(userName: userName, newName: newName)
+        self.networkService.fetch(this: request, for: completion
+        )
+    }
+    
+
     
     
 }

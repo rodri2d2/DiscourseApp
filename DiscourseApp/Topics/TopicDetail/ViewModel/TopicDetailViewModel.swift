@@ -26,7 +26,7 @@ class TopicDetailViewModel{
     var isDeletable:    Bool?
     
     init(topic: Topic, dataManager: TopicDetailManager) {
-        self.topic = topic
+        self.topic              = topic
         self.topicDetailManager = dataManager
     }
     
@@ -68,7 +68,6 @@ class TopicDetailViewModel{
             switch result{
                 case .success(_):
                     self.detailViewDelegate?.didDeleteTopic()
-                    self.didPressBackButton()
                 case .failure(_):
                     print("oooops... something went wrong this deleting")
             }

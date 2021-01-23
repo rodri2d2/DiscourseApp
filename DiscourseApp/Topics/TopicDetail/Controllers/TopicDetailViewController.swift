@@ -79,6 +79,7 @@ extension TopicDetailViewController: TopicDetailViewDelegate{
     }
     
     func didDeleteTopic() {
+        self.showAlert("Topic successfully deleted", "Delete", "OK!")
         topicDetailViewModel.detailCoordinator?.didPressBackButton()
     }
 }

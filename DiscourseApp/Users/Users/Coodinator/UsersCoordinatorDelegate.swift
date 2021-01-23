@@ -8,6 +8,6 @@
 import Foundation
 
 
-protocol UserCoordinatorDelegate: class {
-    func didSelectUser(userId: Int)
+protocol UsersCoordinatorDelegate: class {
+    func didSelectUser(user: User)
 }

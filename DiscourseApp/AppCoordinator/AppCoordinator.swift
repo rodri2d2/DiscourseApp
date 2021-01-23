@@ -57,7 +57,7 @@ class AppCoordinator: Coordinator{
         
         //Users
         guard let usersController = setOfControllers["users"] else {return}
-        let usersCoordinator = UsersCoordinator(with: usersController, userDataManager: dataManager)
+        let usersCoordinator = UsersCoordinator(with: usersController, userDataManager: dataManager, userDetailDataManager: dataManager)
         usersCoordinator.start()
         
         

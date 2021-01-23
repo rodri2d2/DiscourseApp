@@ -9,13 +9,8 @@ import Foundation
 
 
 struct UserListRequest: APIRequest {
-    
-    // MARK: - Class Properties
-    //    let period: String
-    //    let order:  String
-    
-    
-    // MARK: -
+        
+    // MARK: - APIRsquest Protocol Implementations
     typealias Response = UserListResponse
     
     var path: String = "/directory_items.json"

@@ -17,7 +17,7 @@ class UserViewModel{
     
     //Delegates
     weak var userViewModelDelegate:     UserViewModelDelegate?
-    weak var userCoordinatorDelegate:   UserCoordinatorDelegate?
+    weak var userCoordinatorDelegate:   UsersCoordinatorDelegate?
     
     //Managers
     var dataManager: UserDataManager
@@ -59,8 +59,8 @@ class UserViewModel{
     
     
     func didSelectUser(index: Int){
-        let userId = self.userCellViewModel[index].user.id
-        self.userCoordinatorDelegate?.didSelectUser(userId: userId)
+        let user = self.userCellViewModel[index].user
+        self.userCoordinatorDelegate?.didSelectUser(user: user)
     }
     
     

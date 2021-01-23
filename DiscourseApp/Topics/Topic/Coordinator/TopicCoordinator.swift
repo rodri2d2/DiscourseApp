@@ -92,8 +92,6 @@ extension TopicCoordinator: TopicsCoordinatorDelegate {
 }
 
 extension TopicCoordinator: TopicDetailCoodinatorDelegate{
-
-    
     func didPressBackButton() {
         self.presenter.popViewController(animated: true)
     }

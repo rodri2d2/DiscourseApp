@@ -52,12 +52,23 @@ extension DiscourseClientDataManager: CategoryDataManager {
 }
 
 // MARK: - USERS RELATED EXTENSIONS
-extension DiscourseClientDataManager: UserDataManager{
+extension DiscourseClientDataManager: UserDataManager, UserDetailDataManager{
+
+    
     func fetchUserImage(imageURL: String, completion: @escaping (UIImage) -> ()) {
         remoteManager.fetchUserImage(imageURL: imageURL, completion: completion)
     }
     
     func fetchUsers(completion: @escaping (Result<UserListResponse?, Error>) -> ()) {
         remoteManager.fetchUsers(completion: completion)
+    }
+    
+    func fetchUser(userName: String, completion: @escaping (Result<SingleUserResponse?, Error>) -> ()) {
+        remoteManager.fetchSingleUser(userName: userName, completion: completion)
+    }
+    
+    func updateUser(user: String, newName: String, completion: @escaping (Result<SingleUserResponse?, Error>) -> ()) {
+        remoteManager.updateUser(userName: user, newName: newName, completion: completion)
+
     }
 }

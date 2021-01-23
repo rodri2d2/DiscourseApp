@@ -22,4 +22,6 @@ protocol RemoteDataManager {
     // MARK: - Users Related
     func fetchUsers(completion: @escaping (Result<UserListResponse?, Error>)->())
     func fetchUserImage(imageURL: String, completion: @escaping (_ image: UIImage)->())
+    func fetchSingleUser(userName: String, completion: @escaping (Result<SingleUserResponse?, Error>)->())
+    func updateUser(userName: String, newName: String, completion: @escaping(Result<SingleUserResponse?, Error>) ->())
 }

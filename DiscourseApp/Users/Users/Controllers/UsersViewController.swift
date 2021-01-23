@@ -17,7 +17,8 @@ class UsersViewController: UIViewController {
     lazy var tableView: UITableView = {
         
         let tableView = UITableView()
-        tableView.dataSource         = self
+        tableView.dataSource = self
+        tableView.delegate   = self
         tableView.register(UINib(nibName: UsersCell.IDENTIFIER, bundle: nil), forCellReuseIdentifier: UsersCell.IDENTIFIER)
         
         return tableView
@@ -66,7 +67,13 @@ extension UsersViewController: UITableViewDataSource{
     }
 }
 
-extension UsersViewController: UITableViewDelegate{}
+extension UsersViewController: UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectUser(index: indexPath.row)
+    }
+    
+}
 
 
 extension UsersViewController: UserViewModelDelegate{
