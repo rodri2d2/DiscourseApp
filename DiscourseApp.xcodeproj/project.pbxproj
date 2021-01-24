@@ -49,7 +49,6 @@
 		5BBB63E825B08E8E00305619 /* ControllersSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB63E725B08E8E00305619 /* ControllersSet.swift */; };
 		5BBB63F025B0902500305619 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB63EE25B0902500305619 /* TopicsViewController.swift */; };
 		5BBB63F625B0903500305619 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB63F425B0903500305619 /* CategoriesViewController.swift */; };
-		5BBB63F725B0903500305619 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BBB63F525B0903500305619 /* CategoriesViewController.xib */; };
 		5BBB640425B0923200305619 /* TopicCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB640325B0923200305619 /* TopicCoordinator.swift */; };
 		5BBB641325B0937A00305619 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB641225B0937A00305619 /* UIView+Ext.swift */; };
 		5BBB641825B0940B00305619 /* CategoriesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB641725B0940B00305619 /* CategoriesCoordinator.swift */; };
@@ -136,7 +135,6 @@
 		5BBB63E725B08E8E00305619 /* ControllersSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllersSet.swift; sourceTree = "<group>"; };
 		5BBB63EE25B0902500305619 /* TopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		5BBB63F425B0903500305619 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
-		5BBB63F525B0903500305619 /* CategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
 		5BBB640325B0923200305619 /* TopicCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCoordinator.swift; sourceTree = "<group>"; };
 		5BBB641225B0937A00305619 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		5BBB641725B0940B00305619 /* CategoriesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCoordinator.swift; sourceTree = "<group>"; };
@@ -473,7 +471,6 @@
 		5BBB640925B092A700305619 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5BBB63F525B0903500305619 /* CategoriesViewController.xib */,
 				5BCC1B1B25B9CF6A0014169C /* CategoryCell.swift */,
 				5BCC1B1C25B9CF6A0014169C /* CategoryCell.xib */,
 			);
@@ -748,7 +745,6 @@
 				5BF6B0D325B7509900CC7AE8 /* AddTopicView.xib in Resources */,
 				5BBB63D825B084E600305619 /* ApiResources.plist in Resources */,
 				5BBB642225B09DEB00305619 /* TopicCell.xib in Resources */,
-				5BBB63F725B0903500305619 /* CategoriesViewController.xib in Resources */,
 				5BFDFE5125B9E5DE002175A1 /* UsersCell.xib in Resources */,
 				5B6642B425BB5B3100A87D41 /* UserDetailView.xib in Resources */,
 				5B9AFCAE25876C21007BE9E0 /* Assets.xcassets in Resources */,

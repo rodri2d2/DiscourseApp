@@ -8,7 +8,7 @@
 import UIKit
 
 class CategoriesViewController: UIViewController {
-
+    
     // MARK: - Class Properties
     var viewModel: CategoryViewModel
     
@@ -16,12 +16,13 @@ class CategoriesViewController: UIViewController {
     lazy var tableView: UITableView = {
         
         let tableView = UITableView()
-        tableView.dataSource         = self
+        tableView.dataSource = self
+        tableView.delegate   = self
         tableView.register(UINib(nibName: CategoryCell.IDENTIFIER, bundle: nil), forCellReuseIdentifier: CategoryCell.IDENTIFIER)
         
         return tableView
     }()
-
+    
     
     // MARK: - Lifecycle
     init(viewModel: CategoryViewModel) {
@@ -44,13 +45,16 @@ class CategoriesViewController: UIViewController {
         super.viewWillAppear(animated)
         viewModel.fetchCategories()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
-
-
+    
+    
 }
 
+// MARK: - Extension for UITableViewDataSource
 extension CategoriesViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,7 +62,7 @@ extension CategoriesViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.IDENTIFIER, for: indexPath) as? CategoryCell else {return UITableViewCell()}
         let category = viewModel.categories[indexPath.row]
         cell.configure(category: category)
@@ -66,8 +70,18 @@ extension CategoriesViewController: UITableViewDataSource{
     }
 }
 
+// MARK: - Extension for UITableViewDelegate
+extension CategoriesViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(100)
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
 
 
+// MARK: - Extension for CategoryViewModelDelegate
 extension CategoriesViewController: CategoryViewModelDelegate{
     func didFetchCategories() {
         tableView.reloadData()
@@ -76,6 +90,4 @@ extension CategoriesViewController: CategoryViewModelDelegate{
     func didFailToFetchCategories(error: String) {
         self.showAlert(error, "Problem finding categories", "OK")
     }
-    
-    
 }
