@@ -12,6 +12,11 @@ El objetivo principal es crear una app para acceder a los recursos de un foro qu
 
 <br />
 
+### Atencion
+>Para que la aplicacion funcione debes crear una fichero PLIST con las claves y valores necesarios.
+>Las nombres para las claves y valores encontraras en la clase APIResources.
+
+
 
 ## Main goals
 
@@ -22,9 +27,15 @@ The main goal is to create an app to access the resources of Discourse API.
 - Apply new concepts on UI design as well as UX
 - Apply new code patterns such as MVVM
 
+<br />
+
+### Attention
+>You should create a PLIST file with key value pairs needed.
+>The names for those key value pairs can be find on APIResourse class
 
 <br />
 <br />
+
 
 # Samples
 
