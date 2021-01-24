@@ -24,14 +24,12 @@ class AppCoordinator: Coordinator{
     let arrayOfViewControllers = ControllersSet()//Utility class to create TabBars
     
     // MARK: - Coordinator Protrocol Properties
-    var childrem: [Coordinator] = []
-    
+    var childrem: [Coordinator] = []//Other class that also conform to Coordinator protocol and make part of this main flow
     
     // MARK: - Lifecycle
     init(window: UIWindow) {
         self.window = window
     }
-    
     
     // MARK: - Coordinator Protrocol Methods
     func start() {
@@ -39,27 +37,29 @@ class AppCoordinator: Coordinator{
         let setOfControllers = arrayOfViewControllers.controllersDictionary()
         let tabBarController = UITabBarController()
         
-        //Topics
-        let remoteManager = RemoteDataManagerImpl(networkService: NetworkService())
-        let dataManager = DiscourseClientDataManager(manager: remoteManager)
+        let remoteManager   = RemoteDataManagerImpl(networkService: NetworkService())
+        let dataManager     = DiscourseClientDataManager(manager: remoteManager)
         
+        //Topics
         guard let topicController = setOfControllers["topics"] else {return}
         let topicCoordinator = TopicCoordinator(with: topicController,
-                                                topicsDataManager: dataManager,
+                                                topicsDataManager:       dataManager,
                                                 topicsDetailDataManager: dataManager,
-                                                addTopicDataManager: dataManager)
+                                                addTopicDataManager:     dataManager)
         topicCoordinator.start()
         
         //Categories
         guard let categoryController = setOfControllers["categories"] else {return}
-        let categoryCoordinator = CategoriesCoodinator(with: categoryController, dataManager: dataManager)
+        let categoryCoordinator = CategoriesCoodinator(with: categoryController,
+                                                       dataManager: dataManager)
         categoryCoordinator.start()
         
         //Users
         guard let usersController = setOfControllers["users"] else {return}
-        let usersCoordinator = UsersCoordinator(with: usersController, userDataManager: dataManager, userDetailDataManager: dataManager)
+        let usersCoordinator = UsersCoordinator(with: usersController,
+                                                userDataManager:       dataManager,
+                                                userDetailDataManager: dataManager)
         usersCoordinator.start()
-        
         
         //Add children
         self.childrem.append(topicCoordinator)
@@ -69,19 +69,12 @@ class AppCoordinator: Coordinator{
         //Setup TabBar
         tabBarController.viewControllers = [topicController, categoryController, usersController]
         
-        
-        
-        // Nos aseguramos de inicializar la propiedad window asignándole un frame del tamaño de la pantalla, el rootViewController será el UINavigationController del coordinator y finalmente al método makeKeyAndVisible para hacer la ventana visible.
+        //RootViewControllwe will be Coodinator's navigation controller
         window.rootViewController = tabBarController
         window.makeKeyAndVisible()
-        
-        
-        
     }
     
-    func finish() {
-        
-    }
     
+    func finish() {}
     
 }

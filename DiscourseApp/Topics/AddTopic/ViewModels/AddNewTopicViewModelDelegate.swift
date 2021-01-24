@@ -7,5 +7,6 @@
 
 import Foundation
 protocol AddNewTopicViewModelDelegate {
+    func didCreateNewTopic()
     func didFailToCreateTopic(error: String)
 }

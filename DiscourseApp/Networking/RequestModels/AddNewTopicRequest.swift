@@ -13,10 +13,10 @@ struct AddNewTopicRequest: APIRequest {
     // MARK: - APIRsquest Protocol Implementations
     typealias Response = AddNewTopicResponse
     var path: String = "/posts"
-    var httpMethod: HTTPMethod = .post
-    var headers: [String : String] = [:]
-    var body: [String : Any] = [:]
-    var parameters: [String : String] = [:]
+    var httpMethod: HTTPMethod          = .post
+    var headers: [String : String]      = [:]
+    var body: [String : Any]            = [:]
+    var parameters: [String : String]   = [:]
     
     
     // MARK: - Class Properties

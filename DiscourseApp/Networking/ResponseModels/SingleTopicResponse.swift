@@ -14,12 +14,14 @@ struct SingleTopicResponse: Codable {
         case title
         case details
         case numberOfPosts = "posts_count"
+        case closed
     }
     
     let id:            Int
     let title:         String
     let details:       PostDetails
     let numberOfPosts: Int
+    let closed:        Bool?
 
     
 }
@@ -31,6 +33,7 @@ struct PostDetails: Codable{
     }
     
     let isDeletable: Bool?
+    
     
 }
 

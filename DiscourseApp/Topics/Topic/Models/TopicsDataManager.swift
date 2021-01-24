@@ -7,6 +7,9 @@
 
 import Foundation
 
+/**
+ This protocol manages Topic Data
+ */
 protocol TopicsDataManager: class {
     func fetchTopics(completion: @escaping (Result<LatestTopicsResponse?, Error>) -> ())
 }

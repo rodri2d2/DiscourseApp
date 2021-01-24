@@ -14,5 +14,6 @@ import Foundation
  */
 protocol TopicsViewDelegate: class {
     func topicsFetched()
+    func didCreatedNewTopic()
     func didFailToFetchTopics(error: String)
 }

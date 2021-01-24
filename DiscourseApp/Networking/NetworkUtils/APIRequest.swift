@@ -30,9 +30,6 @@ extension APIRequest {
         
         return baseURL
     }
-    
-    
-    
     func request() -> URLRequest {
         
         let url = baseURL.appendingPathComponent(path)

@@ -9,7 +9,7 @@ import UIKit
 
 /**
  This is a utility class
- That with a unique method the returns a array of UIViewControllers to be use for Create a TabBar
+ This class has an unique method that returns a array of UIViewControllers to be use for Create a TabBar
  
  - Author: Rodrigo Candido
  - Version: v1.0

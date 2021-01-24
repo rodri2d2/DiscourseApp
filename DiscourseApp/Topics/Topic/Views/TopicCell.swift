@@ -15,14 +15,16 @@ class TopicCell: UITableViewCell {
     var viewModel: TopicCellViewModel? {
         didSet{
             self.topicTextLabel.text = viewModel?.topicTitle
+            self.createdAtLabel.text = viewModel?.createdAt
         }
     }
     
     // MARK: - Outlets
     @IBOutlet weak var topicTextLabel: UILabel!
+    @IBOutlet weak var createdAtLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
     }
 }

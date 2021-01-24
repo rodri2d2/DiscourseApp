@@ -71,6 +71,12 @@ class NetworkService: NSObject{
                         completion(.success(model))
                     }
                 } catch {
+                    if data.isEmpty{
+                        DispatchQueue.main.async {
+                            completion(.success(nil))
+                        }
+                    }
+                    
                     DispatchQueue.main.async {
                         completion(.failure(error))
                     }
