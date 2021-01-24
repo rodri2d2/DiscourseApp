@@ -8,7 +8,6 @@
 import UIKit
 
 class UsersViewController: UIViewController {
-
     
     // MARK: - Class Properties
     let viewModel: UserViewModel
@@ -47,44 +46,35 @@ class UsersViewController: UIViewController {
     }
 }
 
+// MARK: - Extension for UITableViewDataSource
 extension UsersViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfUsers()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: UsersCell.IDENTIFIER, for: indexPath) as? UsersCell,
            let cellViewModel = self.viewModel.viewModel(index: indexPath.row){
-            
             cell.viewModel = cellViewModel
             return cell
-            
         }
-
         return UITableViewCell()
-        
     }
 }
 
+// MARK: - Extension for UITableViewDelegate
 extension UsersViewController: UITableViewDelegate{
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectUser(index: indexPath.row)
     }
-    
 }
 
-
+// MARK: - Extension for UserViewModelDelegate
 extension UsersViewController: UserViewModelDelegate{
- 
     
     func didFetchUsers() {
         tableView.reloadData()
-    }
-    
-    func didFetchUserAvatar() {
-        
     }
     
     func didFailToFetchUser(error: String) {

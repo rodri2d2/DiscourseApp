@@ -12,9 +12,12 @@ import UIKit
 /**
  This class handles all Network requests
  
-This class handles all network and delegation process by a unique method fetch which asks for a URlResquest, a Data Type to be decoded and once the task is complete execute a complition closure
+This class handles all network and delegation process by a method **fetch** which asks for a URlResquest, a Data Type to be decoded and once the task is complete execute a complition closure
+
+To fetch image use **fetchImage**
   
- - Author: Rodrigo Candido
+ - Attention: This class was first created by Roberto Garrido. At the time this project was created he teach me how to user this type of class to improve my habilities with networking. **Thank you very much Roberto Garrido**
+ - Author: Roberto Garrido
  - Version: v1.0
  */
 class NetworkService: NSObject{
@@ -26,13 +29,12 @@ class NetworkService: NSObject{
     }()
     
     
-    
     func fetch<T: APIRequest>(this request: T, for completion: @escaping(Result<T.Response?, Error>) -> ()) {
         let request = request.request()
         
         let task = session.dataTask(with: request) { data, response, error in
             /*
-             Si hay un error con el dataTask, retornamos error
+                If there is a error with dataTask
              */
             if let error = error {
                 DispatchQueue.main.async {
@@ -42,7 +44,7 @@ class NetworkService: NSObject{
             }
             
             /*
-             Si el servidor devuelve error (del 400 al 599), decodificar el error y lo devolvemos
+                If return valur from server is from 400 to 599
              */
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode >= 400, let data = data {
               
@@ -71,12 +73,15 @@ class NetworkService: NSObject{
                         completion(.success(model))
                     }
                 } catch {
+                    
+                    /*
+                     In some case data does not need an exact answer type but instead is just empty if 200 return code
+                     */
                     if data.isEmpty{
                         DispatchQueue.main.async {
                             completion(.success(nil))
                         }
                     }
-                    
                     DispatchQueue.main.async {
                         completion(.failure(error))
                     }

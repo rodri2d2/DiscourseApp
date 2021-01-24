@@ -32,7 +32,9 @@ extension UIView {
      }
      ~~~
      
-     
+     - Author: Rodrigo Candido
+     - Version: v1.0
+
      */
     func pin(to superView: UIView){
         

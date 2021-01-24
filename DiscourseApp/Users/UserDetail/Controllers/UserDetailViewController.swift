@@ -8,7 +8,7 @@
 import UIKit
 
 class UserDetailViewController: UIViewController {
-
+    
     // MARK: - Class properties
     var viewModel:  UserDetailViewModel
     var isEditable: Bool? {
@@ -17,7 +17,6 @@ class UserDetailViewController: UIViewController {
         }
     }
     
-    
     // MARK: - OutLets
     lazy var userNameLabel:     UILabel = {
         let label = UILabel()
@@ -25,8 +24,8 @@ class UserDetailViewController: UIViewController {
     }()
     
     lazy var userNameTextField: UITextField = {
-       let textField = UITextField()
-       
+        let textField = UITextField()
+        
         return textField
     }()
     
@@ -34,9 +33,6 @@ class UserDetailViewController: UIViewController {
     @IBOutlet weak var userNickLabel: UILabel!
     @IBOutlet weak var middleView:    UIView!
     @IBOutlet weak var updateButton:  UIButton!
-    
-    
-    
     
     // MARK: - Lifecycle
     init(viewModel: UserDetailViewModel) {
@@ -57,12 +53,10 @@ class UserDetailViewController: UIViewController {
         super.viewDidLoad()
         viewModel.loadUser()
     }
-
+    
     // MARK: - Actions
     @IBAction func didPressUpdate(_ sender: UIButton) {
-        
         if userNameTextField.isDescendant(of: self.middleView){
-            
             if let newName = userNameTextField.text{
                 if !newName.isEmpty{
                     let userNick = userNickLabel.text!
@@ -70,30 +64,24 @@ class UserDetailViewController: UIViewController {
                 }
             }
         }
-        
     }
     
     // MARK: - Constraints for UI Elements
     private func setupTextField(){
-                
+        
         self.userNameTextField.text          = self.viewModel.userName
         self.userNameTextField.borderStyle   = .roundedRect
         self.userNameTextField.textAlignment = .center
         self.userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         self.middleView.addSubview(self.userNameTextField)
         
-        
         NSLayoutConstraint.activate([
-        
             self.userNameTextField.centerXAnchor.constraint(equalTo: self.middleView.centerXAnchor),
             self.userNameTextField.centerYAnchor.constraint(equalTo: self.middleView.centerYAnchor),
             self.userNameTextField.leadingAnchor.constraint(equalTo: self.middleView.leadingAnchor),
             self.userNameTextField.trailingAnchor.constraint(equalTo: self.middleView.trailingAnchor)
-        
         ])
-        
     }
-    
     
     private func setupLabel(){
         
@@ -103,15 +91,10 @@ class UserDetailViewController: UIViewController {
         self.middleView.addSubview(userNameLabel)
         
         NSLayoutConstraint.activate([
-        
             self.userNameLabel.centerXAnchor.constraint(equalTo: self.middleView.centerXAnchor),
             self.userNameLabel.centerYAnchor.constraint(equalTo: self.middleView.centerYAnchor)
-        
         ])
-        
     }
-    
-    
     // MARK: - Class functinalities
     private func setupUI(){
         if let editable = isEditable{
@@ -136,6 +119,7 @@ class UserDetailViewController: UIViewController {
     
 }
 
+// MARK: - Extension for UserDetailViewModelDelegate
 extension UserDetailViewController: UserDetailViewModelDelegate{
     
     func didLoadUser() {
@@ -143,7 +127,6 @@ extension UserDetailViewController: UserDetailViewModelDelegate{
         self.userIdLabel.text   = viewModel.userId
         self.userNickLabel.text = viewModel.userNick
         self.isEditable         = viewModel.isEditable
-        
     }
     
     func didUpdateUser() {
