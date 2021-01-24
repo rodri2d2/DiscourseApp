@@ -6,7 +6,9 @@
 //
 
 import UIKit
-
+/**
+ This protocol manages Users Data
+ */
 protocol UserDataManager: class {
     func fetchUsers(completion: @escaping (Result<UserListResponse?, Error>)->())
     func fetchUserImage(imageURL: String, completion: @escaping (_ image: UIImage)->())

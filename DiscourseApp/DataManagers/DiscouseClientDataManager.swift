@@ -8,7 +8,10 @@
 import UIKit
 
 
-
+/**
+ This class should implement all Data Manager needed to find data not only on Remote but also Local
+ 
+ */
 class DiscourseClientDataManager {
     
     let remoteManager: RemoteDataManager
@@ -69,6 +72,5 @@ extension DiscourseClientDataManager: UserDataManager, UserDetailDataManager{
     
     func updateUser(user: String, newName: String, completion: @escaping (Result<SingleUserResponse?, Error>) -> ()) {
         remoteManager.updateUser(userName: user, newName: newName, completion: completion)
-
     }
 }

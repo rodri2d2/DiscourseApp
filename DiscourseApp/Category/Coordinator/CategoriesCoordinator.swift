@@ -32,6 +32,10 @@ class CategoriesCoodinator: Coordinator{
         let viewModel = CategoryViewModel(dataManager: self.dataManager)
         let controller = CategoriesViewController(viewModel: viewModel)
         viewModel.categoryViewDelegate = controller
+        controller.title = "Categories"
+        
+        
+        //
         presenter.pushViewController(controller, animated: true)
         
         

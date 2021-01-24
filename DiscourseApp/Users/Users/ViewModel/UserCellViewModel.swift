@@ -30,8 +30,10 @@ class UserCellViewModel{
     
     func fetchUserImage(imageUrl: String){
         
+        //Clean the sended string by replacing if exits {size} for 60
         let sanatizedUrl = imageUrl.replacingOccurrences(of: "{size}", with: "60")
-
+        
+        // TODO: - For a next version this call shoud go also on an data manage remote call
         let request = UserImageRequest(imageURL: sanatizedUrl)
         guard let url = request.request().url else { return }
         let networkService = NetworkService()

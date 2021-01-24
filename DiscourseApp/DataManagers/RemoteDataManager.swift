@@ -7,6 +7,16 @@
 
 import UIKit
 
+
+/**
+ This procotol links all related data needed to extenal call(Remote)
+ 
+ Implement this protocol whenever a call to NetworkService is possible to sumplify tasks
+ 
+ 
+ - Author: Rodrigo Candido
+ - Version: v1.0
+ */
 protocol RemoteDataManager {
     
     // MARK: - Topics Related
@@ -17,7 +27,6 @@ protocol RemoteDataManager {
     
     // MARK: - Categories Related
     func fetchCategories(completion: @escaping (Result<CategoryResponse?, Error>) -> ())
-    
     
     // MARK: - Users Related
     func fetchUsers(completion: @escaping (Result<UserListResponse?, Error>)->())

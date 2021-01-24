@@ -23,17 +23,17 @@ class CategoryViewModel{
     //Managers
     var categoryDataManager: CategoryDataManager
     
-    
     init(dataManager: CategoryDataManager) {
-        
         self.categoryDataManager = dataManager
-        
     }
     
+    /// Return number of elements on category data
+    /// - Returns: type Int
     func numberOfRows() -> Int{
         return categories.count
     }
     
+    /// Load categories data
     func fetchCategories() {
         categoryDataManager.fetchCategories { (result) in
             switch result {
@@ -45,6 +45,4 @@ class CategoryViewModel{
             }
         }
     }
-    
-    
 }

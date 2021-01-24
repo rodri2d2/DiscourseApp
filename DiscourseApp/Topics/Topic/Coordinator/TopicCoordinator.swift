@@ -8,6 +8,13 @@
 import Foundation
 import UIKit
 
+/**
+ This class controls Topics Navigation flow
+ 
+ 
+ - Author: Rodrigo Candido
+ - Version: v1.0
+ */
 class TopicCoordinator: Coordinator {
     
     // MARK: - Coordinator Implemented Properties
@@ -39,40 +46,35 @@ class TopicCoordinator: Coordinator {
     func start() {
         
         
+        // Latest Topics
         let topicViewModel  = TopicsViewModel(with: self.topicsDataManager)
         let topicController = TopicsViewController(with: topicViewModel)
+        self.topicsViewModel = topicViewModel
         
+        topicController.title = "Latest Topics"
         topicViewModel.topicsViewDelegate  = topicController
         topicViewModel.coordinatorDelegate = self
         
-        
-        self.topicsViewModel = topicViewModel
+        //Present View
         presenter.pushViewController(topicController, animated: true)
         
     }
     
-    func finish() {
-        
-    }
+    func finish() {}
 }
 
+// MARK: - Extension for TopicsCoordinatorDelegate
 extension TopicCoordinator: TopicsCoordinatorDelegate {
 
     func didSelectATopic(topic: Topic) {
         
-        
-        /** TODO: Lanzar módulo TopicDetail
-         Para ello tendrás que crear TopicDetailViewModel, TopicDetailViewController.
-         Asignar "self" como coordinatorDelegate del módulo: Queremos escuchar eventos que requieren navegación desde ese módulo.
-         Asignar el VC al viewDelegate del VM. De esta forma, el VC se enterará de lo necesario para pintar la UI
-         Finalmente, lanzar el TopicDetailViewController sobre el presenter.
-         */
-        
         let detailViewModel  = TopicDetailViewModel(topic: topic, dataManager: self.topicDetailDataManager)
-        detailViewModel.detailCoordinator = self
+            detailViewModel.detailCoordinator = self
         
         let detailController = TopicDetailViewController(topicDetailViewModel: detailViewModel)
-        detailViewModel.detailViewDelegate = detailController
+            detailViewModel.detailViewDelegate = detailController
+        
+        //Present View
         presenter.pushViewController(detailController, animated: true)
     }
     
@@ -80,17 +82,15 @@ extension TopicCoordinator: TopicsCoordinatorDelegate {
         
         let addTopicCoordinator = AddTopicCoordinator(presenter: self.presenter, dataManager: self.addTopicDataManager)
         addTopicCoordinator.start()
-        childrem.append(addTopicCoordinator)
         
         addTopicCoordinator.onTopicCreated = { [weak self] in
-            self?.topicsViewModel?.didCreatedNewTopic()
             addTopicCoordinator.finish()
+            self?.topicsViewModel?.loadTopics()
         }
-        
     }
-    
-}
 
+}
+// MARK: - Extension for TopicDetailCoodinatorDelegate
 extension TopicCoordinator: TopicDetailCoodinatorDelegate{
     func didPressBackButton() {
         self.presenter.popViewController(animated: true)

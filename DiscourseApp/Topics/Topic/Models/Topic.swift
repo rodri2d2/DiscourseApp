@@ -7,8 +7,15 @@
 
 import Foundation
 
-
 struct Topic: Codable {
-    let id:     Int
-    let title:  String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case createdAt = "created_at"
+    }
+    
+    let id:         Int
+    let title:      String
+    let createdAt:  String?
 }

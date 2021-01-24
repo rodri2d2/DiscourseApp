@@ -25,10 +25,9 @@ class AddTopicViewModel{
     }
     
     
-    func didSubmitNewPost(title: String, raw: String){
+    func createNewTopic(title: String, raw: String){
         dataManager.didAddTopic(title: title, raw: raw) { (result) in
             switch result{
-                
                 case .success(_):
                     self.coordinatorDelegate?.didsuccessfullyAdd()
                 case .failure(let error):

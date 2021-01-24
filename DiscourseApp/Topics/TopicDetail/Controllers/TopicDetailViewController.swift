@@ -24,8 +24,9 @@ class TopicDetailViewController: UIViewController {
     
     
     // MARK: - Outlets
-    @IBOutlet weak var topicIdLabel: UILabel!
-    @IBOutlet weak var topicTitleLabel: UILabel!
+    @IBOutlet weak var topicIdLabel:      UILabel!
+    @IBOutlet weak var topicTitleLabel:   UILabel!
+    @IBOutlet weak var topicStatusLabel:  UILabel!
     @IBOutlet weak var deleteTopicButton: UIButton!
     
     // MARK: - Lyfecycle
@@ -40,7 +41,7 @@ class TopicDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         self.title = "Topic Detail"
         
         let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .plain, target: self, action: #selector(backButtonTapped))
@@ -65,22 +66,40 @@ class TopicDetailViewController: UIViewController {
     
 }
 
+// MARK: - Extension for TopicDetailViewDelegate
 extension TopicDetailViewController: TopicDetailViewDelegate{
     
     func didFetchTopic() {
         
         self.topicIdLabel.text    = topicDetailViewModel.detailId
         self.topicTitleLabel.text = topicDetailViewModel.detailTitle
-        if let deletable = topicDetailViewModel.isDeletable{
-            self.deleteTopicButton.setTitleColor(.red, for: .normal)
-            self.deleteTopicButton.isEnabled = deletable
+        self.deleteTopicButton.isEnabled = false
+        self.deleteTopicButton.setTitleColor(.systemGray, for: .disabled)
+        
+        if topicDetailViewModel.isClosed{
+            self.topicStatusLabel.textColor = .systemRed
+            self.topicStatusLabel.text = "TOPIC CLOSED"
+        }else{
+            self.topicStatusLabel.textColor = .systemGreen
+            self.topicStatusLabel.text = "TOPIC OPEN"
+            
+            if topicDetailViewModel.isDeletable {
+                self.deleteTopicButton.setTitleColor(.red, for: .normal)
+                self.deleteTopicButton.isEnabled = true
+            }
         }
         
     }
     
     func didDeleteTopic() {
-        self.showAlert("Topic successfully deleted", "Delete", "OK!")
-        topicDetailViewModel.detailCoordinator?.didPressBackButton()
+        topicDetailViewModel.didPressBackButton()
+        self.showAlert("Topic successfully deleted", "Deleted", "OK!")
+        
+    }
+    
+    
+    func didFailToFetchTopic(error: String) {
+        self.showAlert(error, "Problem finding topic, try later", "OK")
     }
 }
 

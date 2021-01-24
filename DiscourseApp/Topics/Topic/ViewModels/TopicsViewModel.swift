@@ -28,16 +28,16 @@ class TopicsViewModel {
     
     // MARK: - Class Properties
     func loadTopics(){
+        
+        self.topicsViewModel.removeAll()
+        
         topicsDataManager.fetchTopics { (result) in
             switch result{
                 //
                 case .success(let response):
                     guard let fetchedTopics = response?.topicList?.topics else { return }
-                    for topic in fetchedTopics{
-                        self.topicsViewModel.append(TopicCellViewModel(with: topic))
-                    }
+                    self.setupProperties(fetchedTopics: fetchedTopics)
                     self.topicsViewDelegate?.topicsFetched()
-                //
                 case .failure(let error):
                     self.topicsViewDelegate?.didFailToFetchTopics(error: error.localizedDescription)
             }
@@ -57,16 +57,21 @@ class TopicsViewModel {
         guard index < topicsViewModel.count else { return }
         let topic = topicsViewModel[index].topic
         coordinatorDelegate?.didSelectATopic(topic: topic)
-        
     }
     
     func didPressPlusButton(){
         coordinatorDelegate?.didPressPlusButton()
     }
-    
-    func didCreatedNewTopic(){
+
+    func didCreateNewPost(){
         loadTopics()
+        coordinatorDelegate?.didPressPlusButton()
     }
     
+    private func setupProperties(fetchedTopics: [Topic]){
+        for topic in fetchedTopics{
+            self.topicsViewModel.append(TopicCellViewModel(with: topic))
+        }
+    }
 }
 

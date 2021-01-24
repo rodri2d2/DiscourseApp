@@ -42,7 +42,6 @@ class UserViewModel{
                     for user in fetchedUsers{
                         self.userCellViewModel.append(UserCellViewModel(with: user))
                     }
-                    
                     self.userViewModelDelegate?.didFetchUsers()
                     
                 case .failure(let error):
@@ -51,19 +50,14 @@ class UserViewModel{
         }
     }
     
-    
     func viewModel(index: Int) -> UserCellViewModel?{
         guard index < userCellViewModel.count else { return nil }
         return userCellViewModel[index]
     }
     
-    
     func didSelectUser(index: Int){
         let user = self.userCellViewModel[index].user
         self.userCoordinatorDelegate?.didSelectUser(user: user)
     }
-    
-    
-    
     
 }
