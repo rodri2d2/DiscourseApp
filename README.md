@@ -26,6 +26,15 @@ The main goal is to create an app to access the resources of Discourse API.
 <br />
 <br />
 
+# Samples
+
+<p float="left">
+  <img src="https://github.com/rodri2d2/DiscourseApp/blob/release/v1.0/gif/gif1.gif" width="200" />
+  <img src="https://github.com/rodri2d2/DiscourseApp/blob/release/v1.0/gif/gif2.gif" width="200" />
+  <img src="https://github.com/rodri2d2/DiscourseApp/blob/release/v1.0/gif/gif3.gif" width="200" /> 
+</p>
+<br />
+
 >Este es un proyecto de puesta en practica del BootCamp Full Stack Mobile de KeepCoding.
 >No representa ningun beneficion comercial.
 
