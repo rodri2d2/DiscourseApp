@@ -31,7 +31,7 @@ The main goal is to create an app to access the resources of Discourse API.
 
 ### Attention
 >You should create a PLIST file with key value pairs needed.
->The names for those key value pairs can be find on APIResourse class
+>The names for those key value pairs can be find on APIResourse class.
 
 <br />
 <br />
@@ -47,13 +47,13 @@ The main goal is to create an app to access the resources of Discourse API.
 <br />
 
 >Este es un proyecto de puesta en practica del BootCamp Full Stack Mobile de KeepCoding.
->No representa ningun beneficion comercial.
+>No representa ningun beneficio comercial.
 
 
 <br />
 
 >This is a learning project from KeepCoding Full Stack Mobile BootCamp.
->For this project there no commercial benefits
+>For this project there is no commercial benefits
 
 
 
