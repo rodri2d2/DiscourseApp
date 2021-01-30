@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
-        //1 Instatiate App's Coordinator
+        //Instatiate App's Coordinator
         self.appCoordinator = AppCoordinator(window: window)
         
         //2 Call its start functions that will setup initial App's view
